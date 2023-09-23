@@ -15,15 +15,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - run: cd v1.0 && 7z.exe x "ZD V1.0.zip.001" -o"${{ github.workspace }}\zd-installation"
+      - run: cd v1.0 && 7z.exe x "ZD V1.0.zip.001" && 7z.exe x "ZD V1.0.exe" -o"zd-installation"
       
       - name: Delete $PLUGINSDIR
         run: RD /S /Q $PLUGINSDIR
-        shell: cmd
-        working-directory: zd-installation
-      
-      - name: Delete $TEMP
-        run: RD /S /Q $TEMP
         shell: cmd
         working-directory: zd-installation
       
